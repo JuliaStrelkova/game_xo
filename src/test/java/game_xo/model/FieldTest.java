@@ -1,5 +1,7 @@
 package game_xo.model;
 
+import game_xo.model.exceptions.AlreadyOccupiedException;
+import game_xo.model.exceptions.InvalidPointException;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -15,7 +17,7 @@ class FieldTest {
     }
 
     @Test
-    void setFigure() {
+    void setFigure() throws AlreadyOccupiedException, InvalidPointException {
         final Field field = new Field();
         final Point inputPoint = new Point(0,0);
         final Figure inputFigure = Figure.O;
