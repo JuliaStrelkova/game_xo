@@ -108,17 +108,4 @@ class FieldTest {
 
         }
     }
-
-    @Test
-    void getFigureWhenPointAlreadyOccupied() throws AlreadyOccupiedException, InvalidPointException {
-        final Field field = new Field();
-        final Point inputPoint = new Point(0,0);
-        field.setFigure(inputPoint, Figure.O);
-        try {
-            field.setFigure(inputPoint, Figure.X);
-            fail();
-        } catch (final AlreadyOccupiedException e){
-
-        }
-    }
 }
