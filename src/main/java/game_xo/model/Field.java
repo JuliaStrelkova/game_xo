@@ -1,6 +1,5 @@
 package game_xo.model;
 
-import game_xo.model.exceptions.AlreadyOccupiedException;
 import game_xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
