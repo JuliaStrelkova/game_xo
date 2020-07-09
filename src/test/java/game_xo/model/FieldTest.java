@@ -11,13 +11,13 @@ class FieldTest {
 
     @Test
     void getSize() {
-        final Field field = new Field();
+        final Field field = new Field(3);
         assertEquals(3, field.getSize());
     }
 
     @Test
     void setFigure() throws  InvalidPointException {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,0);
         final Figure inputFigure = Figure.O;
 
@@ -29,7 +29,7 @@ class FieldTest {
 
     @Test
     void getFigureWhenFigureIsNotSet() throws InvalidPointException {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,0);
 
         final Figure actualFigure = field.getFigure(inputPoint);
@@ -38,7 +38,7 @@ class FieldTest {
     }
     @Test
     void getFigureWhenXIsNotCorrect() {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(-1,0);
         try {
             final Figure actualFigure = field.getFigure(inputPoint);
@@ -50,7 +50,7 @@ class FieldTest {
 
     @Test
     void getFigureWhenYIsNotCorrect() {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,-1);
         try {
             final Figure actualFigure = field.getFigure(inputPoint);
@@ -62,7 +62,7 @@ class FieldTest {
 
     @Test
     void getFigureWhenXAndYIsNotCorrect() {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(-1,-1);
         try {
             final Figure actualFigure = field.getFigure(inputPoint);
@@ -74,7 +74,7 @@ class FieldTest {
 
     @Test
     void getFigureWhenXMoreThenSize(){
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(field.getSize() + 1,0);
         try {
             final Figure actualFigure = field.getFigure(inputPoint);
@@ -86,7 +86,7 @@ class FieldTest {
 
     @Test
     void getFigureWhenYMoreThenSize() {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,field.getSize() + 1);
         try {
             final Figure actualFigure = field.getFigure(inputPoint);
@@ -98,7 +98,7 @@ class FieldTest {
 
     @Test
     void getFigureWhenXAndYMoreThenSize() {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(field.getSize() + 1,field.getSize() + 1);
         try {
             final Figure actualFigure = field.getFigure(inputPoint);
