@@ -62,7 +62,19 @@ class FieldTest {
     }
 
     @Test
-    void getFigureWhenXMoreThenSize() throws AlreadyOccupiedException, InvalidPointException {
+    void getFigureWhenXAndYIsNotCorrect() {
+        final Field field = new Field();
+        final Point inputPoint = new Point(-1,-1);
+        try {
+            final Figure actualFigure = field.getFigure(inputPoint);
+            fail();
+        } catch (final InvalidPointException e){
+
+        }
+    }
+
+    @Test
+    void getFigureWhenXMoreThenSize(){
         final Field field = new Field();
         final Point inputPoint = new Point(field.getSize() + 1,0);
         try {
@@ -81,6 +93,31 @@ class FieldTest {
             final Figure actualFigure = field.getFigure(inputPoint);
             fail();
         } catch (final InvalidPointException e){
+
+        }
+    }
+
+    @Test
+    void getFigureWhenXAndYMoreThenSize() {
+        final Field field = new Field();
+        final Point inputPoint = new Point(field.getSize() + 1,field.getSize() + 1);
+        try {
+            final Figure actualFigure = field.getFigure(inputPoint);
+            fail();
+        } catch (final InvalidPointException e){
+
+        }
+    }
+
+    @Test
+    void getFigureWhenPointAlreadyOccupied() throws AlreadyOccupiedException, InvalidPointException {
+        final Field field = new Field();
+        final Point inputPoint = new Point(0,0);
+        field.setFigure(inputPoint, Figure.O);
+        try {
+            field.setFigure(inputPoint, Figure.X);
+            fail();
+        } catch (final AlreadyOccupiedException e){
 
         }
     }
