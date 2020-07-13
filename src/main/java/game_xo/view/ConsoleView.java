@@ -15,9 +15,9 @@ import java.util.Scanner;
 
 public class ConsoleView {
 
-    private CurrentMoveController currentMoveController = new CurrentMoveController();
-    private WinnerController winnerController = new WinnerController();
-    private MoveController moveController = new MoveController();
+    final private CurrentMoveController currentMoveController = new CurrentMoveController();
+    final private WinnerController winnerController = new WinnerController();
+    final private MoveController moveController = new MoveController();
 
     public void show( final Game game) {
         System.out.format("Game name %s\n", game.getName());
@@ -47,7 +47,7 @@ public class ConsoleView {
 
         }
         System.out.println();
-        System.out.format("Pleas enter move point for %s\n", figure);
+        System.out.format("Please enter move point for %s\n", figure);
         final Point point = askPoint();
         try {
             moveController.applyFigure(point, field, figure);
